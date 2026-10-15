@@ -1,0 +1,74 @@
+@import 'tailwindcss';
+
+/*
+ * AMG theme tokens: dark and golden.
+ *
+ * Contrast checked against WCAG AA (4.5:1 for body text):
+ *   gold-500 on ink-950  9.4:1     cream on ink-950   17.6:1
+ *   gold-600 on ink-950  6.8:1     muted on ink-950    7.7:1
+ *   ink-950 on gold-500  9.4:1  (dark text on gold buttons)
+ * gold-700 and darker fall below 4.5:1 on dark backgrounds, so use them for
+ * borders and decoration only, never for text.
+ *
+ * Brand colours are not confirmed yet (SPEC section 7). Swap the hex values
+ * here and every page follows.
+ */
+@theme {
+  --font-display: 'Playfair Display Variable', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* Backgrounds: warm near-black through charcoal */
+  --color-ink-950: #0b0a08;
+  --color-ink-900: #14120f;
+  --color-ink-800: #1e1b17;
+  --color-ink-700: #2c2822;
+  --color-ink-600: #3d372f;
+
+  /* Gold accents */
+  --color-gold-50: #fbf7ec;
+  --color-gold-100: #f6eccf;
+  --color-gold-200: #eedba0;
+  --color-gold-300: #e6c873;
+  --color-gold-400: #ddb54e;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b8922a;
+  --color-gold-700: #94731f;
+  --color-gold-800: #6e5418;
+  --color-gold-900: #4a3911;
+
+  /* Text */
+  --color-cream: #f5f1e8;
+  --color-muted: #a8a196;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-ink-950 font-sans text-cream antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+  }
+
+  ::selection {
+    @apply bg-gold-500 text-ink-950;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold-400;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
