@@ -63,6 +63,13 @@
   html {
     color-scheme: light;
     -webkit-tap-highlight-color: transparent;
+    /* Keeps headings clear of the sticky top bar after jumping to #main or #follow. */
+    scroll-padding-top: 5rem;
+  }
+
+  /* Stops the page behind the open menu from scrolling. */
+  html:has(dialog[open]) {
+    overflow: hidden;
   }
 
   body {

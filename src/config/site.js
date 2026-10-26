@@ -28,14 +28,16 @@ export const contact = {
 
 /*
  * Official social channels. TODO: real links from Mr. Caleb.
- * Set a channel's url to '' to hide it everywhere on the site.
+ * Leave url as '' until the real link arrives. In the prototype an empty link shows as
+ * "coming soon" so the footer can be reviewed; from Phase 3 an empty link hides the
+ * channel everywhere on the site (SPEC 6.2).
  */
 export const socials = [
-  { id: 'facebook', label: 'Facebook', url: '#' },
-  { id: 'instagram', label: 'Instagram', url: '#' },
-  { id: 'youtube', label: 'YouTube', url: '#' },
-  { id: 'tiktok', label: 'TikTok', url: '#' },
-  { id: 'x', label: 'X', url: '#' },
+  { id: 'facebook', label: 'Facebook', url: '' },
+  { id: 'instagram', label: 'Instagram', url: '' },
+  { id: 'youtube', label: 'YouTube', url: '' },
+  { id: 'tiktok', label: 'TikTok', url: '' },
+  { id: 'x', label: 'X', url: '' },
 ]
 
 /*
