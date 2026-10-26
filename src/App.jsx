@@ -1,4 +1,4 @@
-// Phase 0 theme preview for palette G. Replaced by the real site shell in Phase 2.
+// Phase 0 theme preview for palette G. Replaced by the visual prototype in Phase 1.
 import { site } from './config/site.js'
 
 const colourGroups = [

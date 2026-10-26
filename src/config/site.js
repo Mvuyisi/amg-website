@@ -49,6 +49,6 @@ export const features = {
   showEvents: false, // Hidden until the first event is added
   showGive: false, // Hidden until giving details are confirmed
   showNewsletter: false, // Hidden until the WhatsApp channel or newsletter exists
-  showTestimonies: false, // Phase 2: needs consent from each person
+  showTestimonies: false, // After launch (v2): needs consent from each person
   showPressKit: false, // Recommended for launch. Turn on once the press bio and hi-res photo arrive
 }

@@ -1,7 +1,7 @@
 # AMG Website: Specification
 
 Website for Apostle Mtho Gwebu. Built from scratch by Mvuyisi (MvuZu Tech) using Claude Code.
-Status: Draft v3, 26 Oct 2026 (new design direction: palette G, white with blue and amber).
+Status: Draft v5, 26 Oct 2026 (visual prototype first; later phases connect it to real data and add the admin side).
 
 ---
 
@@ -74,7 +74,7 @@ Moving people from **darkness to light**.
 ### 3.6 Socials
 - Dedicated section and footer icons linking to all of Apostle's official channels.
 - Socials supplied by **Mr. Caleb**. Until received, the database is seeded with placeholder links that an admin replaces in the dashboard under **Socials & Contact**.
-- Optional embedded latest post or video (phase 2).
+- Optional embedded latest post or video (after launch, v2).
 
 ### 3.7 Bookings
 - Booking request form: name, organisation or church, email, phone/WhatsApp, event type (conference, church service, mentorship, interview, other), event date, location, expected attendance, message.
@@ -96,11 +96,11 @@ These are built from the start but can be **hidden with a single on/off switch i
 | **Upcoming Events** | Shows where Apostle will be ministering, with date, venue, details. | Hidden until first event is added |
 | **Partner / Give** | Lets people support the work. Link to the church's existing giving method first, a payment integration later. | Hidden until details are confirmed |
 | **Newsletter / WhatsApp Channel** | Captures followers directly instead of relying on social algorithms. | Hidden until channel is created |
-| **Testimonies** | Social proof of lives changed. Needs consent from each person. | Phase 2 |
-| **Books / Resources** | Sell or share books, teachings and downloads. | Phase 2 |
+| **Testimonies** | Social proof of lives changed. Needs consent from each person. | After launch (v2) |
+| **Books / Resources** | Sell or share books, teachings and downloads. | After launch (v2) |
 | **Contact / Find the Church** | Service times, address, map, contact details. | Include if the church wants it |
 | **Press kit (for bookers)** | Short bio, hi-res photo, speaking topics, so organisers do not have to ask. A simple download on the Bookings page. | Recommended |
-| **Prayer request** | Simple form on the site. Strong fit with a ministry website. | Phase 2 |
+| **Prayer request** | Simple form on the site. Strong fit with a ministry website. | After launch (v2) |
 | **Footer essentials** | Privacy policy and copyright line. A privacy note is important because forms collect personal data (POPIA). | Required |
 
 **Also recommended (technical):**
@@ -126,7 +126,7 @@ These are built from the start but can be **hidden with a single on/off switch i
 | Domain | To be connected after approval |
 | Content | Stored in Supabase and edited at `/admin`. `src/config/site.js` keeps only technical settings that never change after launch |
 
-**Feature switches:** stored in the Supabase `settings` table and switched on or off in the dashboard under **Sections on/off**: `showSermons`, `showEvents`, `showGive`, `showNewsletter`, `showTestimonies`, `showPressKit`. (They start in `site.js` in Phase 0 and move to the database in Phase 1.)
+**Feature switches:** stored in the Supabase `settings` table and switched on or off in the dashboard under **Sections on/off**: `showSermons`, `showEvents`, `showGive`, `showNewsletter`, `showTestimonies`, `showPressKit`. (They start in `site.js` in Phase 0 and move to the database in Phase 2.)
 
 **Environment variables** (never committed to GitHub): Supabase URL and anon key. Provide a `.env.example`. The Supabase service role key is never used in the website code.
 
@@ -174,7 +174,7 @@ These are built from the start but can be **hidden with a single on/off switch i
 - The database setup lives in the repo as plain SQL files (`supabase/schema.sql` for tables and security rules, `supabase/seed.sql` for default content), so the database can be rebuilt from scratch at any time.
 - Photos are resized and compressed in the browser before they upload, so large phone photos never slow the site down or fill up storage.
 - **Security:** every table has Row Level Security. Visitors can read published content and can send a booking request, but can never read booking requests. Only admins can change content or see bookings.
-- Suggested tables (final design confirmed in Phase 1, kept deliberately plain):
+- Suggested tables (final design confirmed in Phase 2, kept deliberately plain):
 
 | Table | Holds |
 |---|---|
@@ -243,21 +243,24 @@ The dashboard edits content, not design. These stay as developer tasks:
 1. Create a local project folder and initialise Git.
 2. Add this `SPEC.md` to the folder root and commit it.
 3. Create the GitHub repo and push.
-4. Build in phases through Claude Code (below), committing after each phase.
-5. Review everything on localhost, on a phone on the same Wi-Fi, including the admin dashboard.
-6. Apostle's review and approval round.
-7. Link repo to Vercel, connect the domain, go live.
-8. Hand over: create the real admin accounts and walk each admin through MAINTENANCE.md.
+4. Build in phases through Claude Code (below), committing after each phase, starting with Phase 1: the visual prototype.
+5. **Prototype review.** The prototype runs on localhost only and is reviewed there, with the browser resized to phone width, then shown to Apostle and Mr. Caleb in person or by screen share.
+6. **Approval gate.** No database or admin work (Phase 2 onwards) starts until the prototype is approved, and any visual changes they ask for are made before moving on. A shareable preview link (for example on Vercel) is optional and only added if they ask for one; otherwise Vercel and the domain are connected at launch.
+7. Build the remaining phases, committing after each phase.
+8. Review everything on localhost, on a phone on the same Wi-Fi, including the admin dashboard.
+9. Apostle's review and approval round.
+10. Link repo to Vercel, connect the domain, go live.
+11. Hand over: create the real admin accounts and walk each admin through MAINTENANCE.md.
 
 ### Build Phases
-- **Phase 0: Setup.** Project scaffold, Tailwind, folder structure, `site.js` config, theme tokens (colours, fonts). *Done 15 Oct 2026. The feature switches and contact details in `site.js` move to the database in Phase 1.*
-- **Phase 1: Database and default content.** Supabase project, tables, Row Level Security, Storage buckets, the `admins` list, `supabase/schema.sql` and `supabase/seed.sql` with default draft content, `.env.local`, and plain functions in `src/lib/` to read content. Slim `site.js` down to technical settings only.
-- **Phase 2: Shell.** Routing (public pages plus an `/admin` placeholder), navigation (mobile menu), footer, Home hero, all reading from the database.
-- **Phase 3: Core pages.** The Man, The Message, The Mandate, reading from the database.
+- **Phase 0: Setup.** Project scaffold, Tailwind, folder structure, `site.js` config, theme tokens (colours, fonts). *Done 15 Oct 2026. The feature switches and contact details in `site.js` move to the database in Phase 2.*
+- **Phase 1: Visual prototype.** Build every public page in the approved white, blue and amber design, mobile-first, with placeholder or draft copy marked for Apostle's approval: Home (top bar with the **Book Apostle** button, welcome video hero with a play button, number tiles, three entry cards), The Man, The Message, The Mandate, Gallery, Bookings, and the optional sections (Sermons, Events, Give, Newsletter, Press kit) shown for review. All content comes from simple local data files in `src/content/`, shaped like the future database tables so they can be swapped for database calls later. The booking form validates and shows a thank-you message but saves nothing. No admin, no login and no Supabase in this phase. Ends at the approval gate (Build Workflow step 6).
+- **Phase 2: Database and default content.** Supabase project, tables, Row Level Security, Storage buckets, the `admins` list, `supabase/schema.sql` and `supabase/seed.sql` with default draft content, `.env.local`, and plain functions in `src/lib/` to read content. Slim `site.js` down to technical settings only.
+- **Phase 3: Connect the core pages.** The pages and interface already exist from Phase 1; this phase only connects them to real data, with no redesign. Replace the local data files in `src/content/` with database calls, using the plain functions in `src/lib/`, for Home, The Man, The Message and The Mandate, plus the parts every page shares (the footer's socials and contact details, and the section switches).
 - **Phase 4: Admin dashboard foundation.** Login, forgot and set password, protected `/admin`, dashboard layout (left menu, phone menu), Overview, and editors for Home, The Man, The Message, The Mandate (text, lists and portrait photos), Socials & Contact, and Sections on/off. Start MAINTENANCE.md with signing in, adding an admin and every editor built so far.
-- **Phase 5: Gallery and Socials.** Public gallery and socials section, plus the Gallery admin (upload with compression, descriptions, categories, delete).
-- **Phase 6: Bookings.** Form, Supabase table, WhatsApp button, email notification, spam protection, plus the Bookings admin (list, details, mark as handled, delete).
-- **Phase 7: Optional sections.** Sermons, Events, Give, Newsletter and Press kit (built, hidden), each with its admin form.
+- **Phase 5: Gallery and Socials.** The public gallery and socials section already exist from Phase 1. This phase connects them to the database and adds the Gallery admin, which is where photos are saved: upload with compression, descriptions, categories, delete.
+- **Phase 6: Bookings.** The booking form already exists from Phase 1. This phase connects it to the database and makes it save: the Supabase table, the WhatsApp button, the email notification and spam protection. It also adds the Bookings admin (list, details, mark as handled, delete).
+- **Phase 7: Optional sections.** Sermons, Events, Give, Newsletter and Press kit already exist from Phase 1. This phase connects them to the database, sets each one to its launch state from section 4 (hidden until ready), and adds each one's admin form.
 - **Phase 8: Polish.** Performance, SEO and share previews, accessibility, 404, privacy note. Check every admin screen on a phone.
 - **Phase 9: Handover.** Finish MAINTENANCE.md: backups, redeploying, troubleshooting and the accounts list. Test it by following every step exactly as written, ideally with the future admin doing it. Run a real test backup.
 - **Phase 10: Review and launch.** Approval, Vercel deploy, domain, real admin accounts, production email sending.
@@ -304,3 +307,4 @@ Claude drafts the copy; these inputs are needed from Mvuyisi, Apostle and Mr. Ca
 4. ~~Who will update the site after launch: Mvuyisi, or should there be a simple admin for others?~~ **Answered 15 Oct 2026:** non-technical admins, through the dashboard in section 6.
 5. Which Supabase plan? The free plan can pause a project when the site is quiet and does not include the daily backups that paid plans offer. Check current limits before launch.
 6. Which email service will send booking notifications and admin emails (invitations, password resets), and from which address?
+7. Who gives the final approval on the prototype (Phase 1): Apostle, his office, or Mr. Caleb? Nothing moves past the approval gate (Build Workflow step 6) without it.
