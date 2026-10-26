@@ -24,6 +24,9 @@ export const settings = {
 
   // Empty until the video is supplied. Paste a YouTube link here to try it out.
   welcomeVideoUrl: '',
+  // Which side of the hero photo the welcome video floats on: 'left' or 'right'.
+  // Pick the side away from Apostle's face once the real photo is in.
+  videoSide: 'right',
 
   // PLACEHOLDER values for the prototype only. Never replace them with guesses: only
   // real figures that Apostle has approved. Leaving any value empty hides the strip.

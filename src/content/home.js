@@ -11,7 +11,8 @@ export const home = {
   // Hero
   heroLabel: 'Apostle',
   heroTitle: 'Mtho Gwebu',
-  welcomeVideoTitle: 'A word of welcome', // DRAFT
+  welcomeVideoLabel: 'Watch welcome message',
+  welcomeVideoTitle: 'Welcome message', // Names the video player for screen readers
   welcomeVideoComingSoon: 'Welcome video coming soon',
   watchButtonText: 'Watch the latest message',
   // Points to The Message until the Sermons section or the YouTube link is ready.
@@ -40,6 +41,9 @@ export const home = {
   ],
   entryButtonText: 'Discover more',
 
+  // Ministering photo band (the photo itself is in images.js)
+  ministeringCaption: 'Placeholder: a one-line caption for this photo.',
+
   // Grace, Purpose and Mercy teaser (the pillars themselves are in pillars.js)
   pillarsLabel: 'The Message',
   pillarsHeading: 'Grace, Purpose and Mercy',
@@ -50,6 +54,11 @@ export const home = {
   mandateHeading: 'From darkness to light.',
   mandateText: 'Every part of this ministry serves one calling: to move people from darkness to light.', // DRAFT
   mandateButtonText: 'Discover the Mandate',
+
+  // Moments of ministry mosaic (the photos are the featured gallery photos in images.js)
+  momentsLabel: 'Gallery',
+  momentsHeading: 'Moments of ministry',
+  momentsButtonText: 'See the full gallery',
 
   // Booking block
   bookingLabel: 'Bookings',

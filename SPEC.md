@@ -1,7 +1,7 @@
 # AMG Website: Specification
 
 Website for Apostle Mtho Gwebu. Built from scratch by Mvuyisi (MvuZu Tech) using Claude Code.
-Status: Draft v5, 26 Oct 2026 (visual prototype first; later phases connect it to real data and add the admin side).
+Status: Draft v6, 26 Oct 2026 (adds photos: photo hero with floating welcome video, photo spots and sizes in 3.8).
 
 ---
 
@@ -37,7 +37,7 @@ Status: Draft v5, 26 Oct 2026 (visual prototype first; later phases connect it t
 
 ### 3.1 Home
 - Top bar: logo, a **Book Apostle** button that is always visible, and a menu button.
-- Hero: name and title and a one-line tagline, with a welcome video (with a play button) beneath them, not just a portrait. The video only loads when play is tapped, to save mobile data.
+- Hero: a full-width photo of Apostle, tall on a phone, with his name and title and a one-line tagline over the lower part on a dark navy fade. The welcome video floats over one side of the photo (the side is a setting, so it never covers his face): a compact card on phones that opens a larger player when tapped, and a larger card on wide screens. The video only loads when play is tapped, to save mobile data. The two main buttons sit directly under the photo.
 - A strip of three big-number tiles: years in ministry, lives touched, places preached. They show only real figures that Apostle approves, and the strip stays hidden until they are supplied.
 - Three entry points to The Man, The Message and The Mandate.
 - Primary buttons: **Book Apostle** and **Follow / Watch**.
@@ -83,6 +83,12 @@ Moving people from **darkness to light**.
 - Spam protection (honeypot field plus simple rate limiting).
 - Booking contact: WhatsApp number and email (to be supplied).
 - Requests are viewed and marked as handled in the admin dashboard (section 6).
+
+### 3.8 Photos
+- **Where photos appear:** Home hero portrait (tall, with an optional wide version for computers), a full-width photo of Apostle ministering, and a "Moments of ministry" mosaic of six featured gallery photos; The Man (a portrait and a second wide photo); a wide banner each for The Message and The Mandate; and the Gallery.
+- Until a photo is supplied, a clearly labelled placeholder of the same shape and size holds its place.
+- **Sizes:** portraits at least 1200px wide, wide photos at least 1600px wide, saved as JPG and under about 500 KB each after compression.
+- **Tip:** the hero photo should be sharp and well lit, with some free space beside Apostle for the welcome video and his name.
 
 ---
 
@@ -153,14 +159,14 @@ These are built from the start but can be **hidden with a single on/off switch i
 
 | Area | What the admin can do |
 |---|---|
-| **Home** | Edit the hero title, tagline, portrait photo and welcome video link. |
+| **Home** | Edit the hero title, tagline and welcome video link. Replace the hero portrait (and its optional wide version) and the ministering photo. Choose which side of the photo the welcome video floats on. |
 | **The Man** | Edit the bio, personal quote and portrait photo. Edit the three number tiles (years in ministry, lives touched, places preached); leave them blank to keep the strip hidden. Add, edit, delete and reorder roles and titles, and timeline moments. |
 | **The Message** | Edit the introduction. For each of **Grace**, **Purpose** and **Mercy**: edit the explanation, key scripture (verse text and reference) and signature quote. |
 | **The Mandate** | Edit the mandate statement and its scripture. Add, edit, delete and reorder the "how it shows up in practice" items. Edit the call-to-action text. |
 | **Press kit** | Replace the press kit download. Edit the short press bio and speaking topics. |
 | **Sermons** | Add, edit and delete sermons: title, date, topic, short description and the YouTube, Spotify or podcast link. |
 | **Events** | Add, edit and delete events: title, date and time, venue, town or city, details and an optional link. Past events drop off the upcoming list automatically. |
-| **Gallery** | Upload photos (several at once), add a short description (used as alt text) and a category, edit them and delete them. |
+| **Gallery** | Upload photos (several at once), add a short description (used as alt text) and a category, edit them and delete them. Choose which photos are featured in the "Moments of ministry" mosaic on Home. |
 | **Socials & Contact** | Edit each social link (leave it blank to hide it), the booking email, WhatsApp number, booking response time, giving details, newsletter or WhatsApp channel link, and church contact details. |
 | **Sections on/off** | Switch Sermons, Events, Give, Newsletter, Testimonies and Press kit on or off. |
 | **Bookings** | See all booking requests, newest first, with new ones highlighted. Open one to see every detail, with one-tap WhatsApp, call and email buttons. Mark a request as handled (or back to new). Delete a request, for example when the person asks for their data to be removed (POPIA). |
@@ -277,7 +283,11 @@ Claude drafts the copy; these inputs are needed from Mvuyisi, Apostle and Mr. Ca
 - [ ] His signature scriptures and quotes for Grace, Purpose and Mercy.
 - [ ] How the Mandate is lived out: outreach, discipleship, community work.
 - [ ] Official titles and any ministry or organisation names and logos.
-- [ ] High-quality portrait photo, plus event photos for the gallery.
+- [ ] Photos (sizes in 3.8):
+  - [ ] A high-quality portrait of Apostle for the Home hero (tall; optionally a wide version for computers).
+  - [ ] A photo of Apostle ministering (wide).
+  - [ ] Six or more event photos for the "Moments of ministry" mosaic and the gallery.
+  - [ ] A portrait and a second wide photo for The Man, and a wide banner each for The Message and The Mandate.
 - [ ] All social media links (from Mr. Caleb).
 - [ ] Booking WhatsApp number and email address; expected response time.
 - [ ] Any speaking topics and a short press bio.
