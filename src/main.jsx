@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource-variable/playfair-display'
-import '@fontsource-variable/inter'
+import '@fontsource-variable/outfit'
+import '@fontsource-variable/dm-sans'
 import './index.css'
 import App from './App.jsx'
 

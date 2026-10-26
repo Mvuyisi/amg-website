@@ -2,7 +2,7 @@
  * Site configuration: the one file to edit for names, contact details,
  * socials and which sections are switched on.
  *
- * Anything marked TODO is a placeholder waiting on content (SPEC section 7).
+ * Anything marked TODO is a placeholder waiting on content (SPEC section 8).
  */
 
 export const site = {

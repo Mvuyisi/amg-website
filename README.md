@@ -10,14 +10,14 @@ npm run dev          # http://localhost:5173
 npm run dev -- --host   # also reachable from a phone on the same Wi-Fi
 ```
 
-Copy `.env.example` to `.env.local` and fill in the Supabase values (needed from Phase 4).
+Copy `.env.example` to `.env.local` and fill in the Supabase values (needed from Phase 1).
 
 ## Where things live
 
 | Path | What goes there |
 |---|---|
-| `src/config/site.js` | Name, tagline, contact details, socials and feature switches. Edit this first. |
-| `src/index.css` | Theme tokens: colours (`ink-*`, `gold-*`, `cream`, `muted`) and fonts. |
+| `src/config/site.js` | Technical settings that never change after launch, such as the site name and address. Placeholder content sits here until Phase 1 moves it to the database. |
+| `src/index.css` | Theme tokens: colours (`white`, `soft`, `ink`, `muted`, `line`, `blue`, `cyan-dark`, `amber`, `sky` and the `*-tint` shades), the brand gradient (`bg-brand-gradient`) and fonts (Outfit, DM Sans). |
 | `src/content/` | Page copy as data: bio, timeline, the three pillars, mandate. |
 | `src/pages/` | Routed pages: Home, Gallery, Bookings, 404. |
 | `src/sections/` | Page sections: Hero, The Man, The Message, The Mandate, Sermons, Events. |
@@ -30,4 +30,4 @@ Copy `.env.example` to `.env.local` and fill in the Supabase values (needed from
 
 ## Stack
 
-React, Vite, Tailwind CSS v4, Supabase (Phase 4), hosted on Vercel.
+React, Vite, Tailwind CSS v4, Supabase (from Phase 1), hosted on Vercel.

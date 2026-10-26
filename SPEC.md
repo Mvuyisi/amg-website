@@ -1,7 +1,7 @@
 # AMG Website: Specification
 
 Website for Apostle Mtho Gwebu. Built from scratch by Mvuyisi (MvuZu Tech) using Claude Code.
-Status: Draft v2, 15 Oct 2026 (adds section 6: Maintainability and Admin Dashboard).
+Status: Draft v3, 26 Oct 2026 (new design direction: palette G, white with blue and amber).
 
 ---
 
@@ -23,11 +23,12 @@ Status: Draft v2, 15 Oct 2026 (adds section 6: Maintainability and Admin Dashboa
 ## 2. Design Principles
 
 - **Mobile-first.** Design for a 360-430px wide phone screen first, then scale up to tablet and desktop. Most visitors will be on phones, many on mobile data.
-- **Look and feel:** Dark and golden. Deep black or charcoal backgrounds, gold accents, clean white text. Warm but bold tone.
-- **Typography:** One strong display font for headings, one highly readable font for body text. Large tap targets (minimum 44px).
+- **Look and feel:** Predominantly white, minimal and vibrant. Colourful pill-shaped buttons, big bold uppercase headings, and video as a key feature.
+- **Visual reference:** the approved colour mockup, option G (white with blue and amber). Exact colour values live in `src/index.css`.
+- **Typography:** Outfit for headings (weights 600 to 800), DM Sans for body text. Large tap targets (minimum 44px).
 - **Speed:** Compress and lazy-load all images. Target Lighthouse mobile performance of 85 or higher. Keep it light for users on limited data.
 - **Language:** English only for launch.
-- **Accessibility:** Good contrast (gold on dark must stay readable), alt text on all images, keyboard-friendly navigation.
+- **Accessibility:** Good contrast (at least 4.5:1 for body text, including white text on the coloured buttons), alt text on all images, keyboard-friendly navigation.
 - **Tone of copy:** Faith-led, confident, warm, never cold or corporate.
 
 ---
@@ -35,7 +36,9 @@ Status: Draft v2, 15 Oct 2026 (adds section 6: Maintainability and Admin Dashboa
 ## 3. Site Structure
 
 ### 3.1 Home
-- Full-screen hero: portrait of Apostle, name and title, one-line tagline.
+- Top bar: logo, a **Book Apostle** button that is always visible, and a menu button.
+- Hero: name and title and a one-line tagline, with a welcome video (with a play button) beneath them, not just a portrait. The video only loads when play is tapped, to save mobile data.
+- A strip of three big-number tiles: years in ministry, lives touched, places preached. They show only real figures that Apostle approves, and the strip stays hidden until they are supplied.
 - Three entry points to The Man, The Message and The Mandate.
 - Primary buttons: **Book Apostle** and **Follow / Watch**.
 - Short featured strip: latest sermon and next event (hideable).
@@ -59,7 +62,7 @@ The message of **Grace, Purpose and Mercy**.
 Moving people from **darkness to light**.
 - Statement of the mandate and the scripture behind it.
 - How this shows up in practice: preaching, discipleship, outreach, mentorship, community work (content to be confirmed).
-- A "darkness to light" visual treatment: the section can transition from dark to gold as the visitor scrolls.
+- A "darkness to light" visual treatment: the Mandate sits in a full-width colour band that moves from dark navy to bright blue.
 - Call to action: Join us / Contact / Partner.
 
 ### 3.5 Gallery
@@ -150,8 +153,8 @@ These are built from the start but can be **hidden with a single on/off switch i
 
 | Area | What the admin can do |
 |---|---|
-| **Home** | Edit the hero title, tagline and portrait photo. |
-| **The Man** | Edit the bio, personal quote and portrait photo. Add, edit, delete and reorder roles and titles, and timeline moments. |
+| **Home** | Edit the hero title, tagline, portrait photo and welcome video link. |
+| **The Man** | Edit the bio, personal quote and portrait photo. Edit the three number tiles (years in ministry, lives touched, places preached); leave them blank to keep the strip hidden. Add, edit, delete and reorder roles and titles, and timeline moments. |
 | **The Message** | Edit the introduction. For each of **Grace**, **Purpose** and **Mercy**: edit the explanation, key scripture (verse text and reference) and signature quote. |
 | **The Mandate** | Edit the mandate statement and its scripture. Add, edit, delete and reorder the "how it shows up in practice" items. Edit the call-to-action text. |
 | **Press kit** | Replace the press kit download. Edit the short press bio and speaking topics. |
@@ -275,7 +278,9 @@ Claude drafts the copy; these inputs are needed from Mvuyisi, Apostle and Mr. Ca
 - [ ] All social media links (from Mr. Caleb).
 - [ ] Booking WhatsApp number and email address; expected response time.
 - [ ] Any speaking topics and a short press bio.
-- [ ] Brand assets: logo, preferred gold and dark shades, if they exist.
+- [ ] Welcome video for the Home hero (a YouTube or similar link).
+- [ ] Real figures for the three number tiles (years in ministry, lives touched, places preached), approved by Apostle.
+- [ ] Brand assets: logo, if one exists. (Colours are settled: palette G, see section 10.)
 - [ ] Confirmation of who approves the site (Apostle, his office, or Mr. Caleb).
 - [ ] Names and email addresses of the people who will manage the site (admins).
 
@@ -294,7 +299,7 @@ Claude drafts the copy; these inputs are needed from Mvuyisi, Apostle and Mr. Ca
 
 ## 10. Open Questions
 1. Should the site be one long scrolling page with section anchors, or separate pages for each section? (Recommendation: one scrolling Home with the three M's, plus separate pages for Gallery and Bookings.)
-2. Does Apostle already have a church or ministry brand (logo, colours) to follow?
+2. ~~Does Apostle already have a church or ministry brand (logo, colours) to follow?~~ **Answered 26 Oct 2026:** the palette is "G: white with blue and amber". The visual reference is the approved colour mockup, option G.
 3. Which email address should receive booking requests?
 4. ~~Who will update the site after launch: Mvuyisi, or should there be a simple admin for others?~~ **Answered 15 Oct 2026:** non-technical admins, through the dashboard in section 6.
 5. Which Supabase plan? The free plan can pause a project when the site is quiet and does not include the daily backups that paid plans offer. Check current limits before launch.
